@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Johnson's Discount Tire in Conway, South Carolina. New and used tires for cars, trucks, SUVs, and off-road vehicles.">
+<title>Johnson's Discount Tire | Conway, SC</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap");
+:root{
+  --blue:rgb(12,126,190);
+  --blue-light:rgb(52,166,225);
+  --bg:rgb(13,21,30);
+  --panel:rgb(20,32,44);
+  --card:rgb(24,38,52);
+  --text:rgb(247,249,251);
+  --muted:rgb(174,189,203);
+  --line:rgb(45,65,84);
+  --facebook:rgb(24,119,242);
+  --yelp:rgb(211,35,35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{margin:0;font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;font-weight:700;letter-spacing:1.5px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1{font-size:clamp(52px,8vw,100px);line-height:1;margin-bottom:22px}
+h2{font-size:clamp(40px,5.5vw,64px);line-height:1.05;margin-bottom:18px}
+h3{letter-spacing:1px}
+h1 span,h2 span{color:var(--blue-light)}
+
+/* PHOTOS */
+.photo{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:var(--panel)}
+.photo-front{background-image:url("IMG_7948.jpeg")}
+.photo-angle{background-image:url("IMG_7949.jpeg")}
+.photo-inventory{background-image:url("IMG_7950.jpeg")}
+.photo-offroad{background-image:url("IMG_7951.jpeg")}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 20px;background:rgba(13,21,30,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.logo{display:flex;align-items:center;gap:12px;border:0;background:none;padding:0;text-align:left}
+.logo-wheel{display:grid;place-items:center;width:46px;height:46px;border:5px solid white;border-radius:50%;background:var(--blue);font-size:22px;font-weight:900;font-style:italic}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-text strong{font-size:22px;letter-spacing:1px}
+.logo-text small{margin-top:5px;font-size:11px;letter-spacing:3px;color:var(--muted)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav-link{border:0;background:none;padding:0;font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.nav-link:hover{color:var(--blue-light)}
+.menu-btn{display:none;border:0;background:none;padding:8px}
+.menu-btn span{display:block;width:28px;height:2px;margin:6px;background:white}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border:0;border-radius:40px;font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:white;transition:transform .2s,filter .2s}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.btn-blue{background:var(--blue);box-shadow:0 10px 26px rgba(12,126,190,.4)}
+.btn-outline{border:2px solid rgba(255,255,255,.55);background:rgba(20,32,44,.7)}
+.btn-facebook{background:var(--facebook)}
+.btn-yelp{background:var(--yelp)}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px}
+
+/* HERO */
+.hero{position:relative;display:flex;align-items:center;min-height:100vh;padding:120px 6vw 80px;overflow:hidden;background:var(--bg)}
+.hero-feature{position:absolute;top:0;right:0;bottom:0;z-index:0;width:68%;border:0;padding:0;background:url("598383144_1458523666281387_9128436192127948379_n.jpg") center 35%/cover no-repeat;-webkit-mask-image:linear-gradient(to left,black 40%,rgba(0,0,0,.6) 65%,transparent 100%);mask-image:linear-gradient(to left,black 40%,rgba(0,0,0,.6) 65%,transparent 100%);animation:slow-zoom 20s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(9,16,23,.92) 0%,rgba(9,16,23,.7) 40%,rgba(9,16,23,.15) 75%,rgba(9,16,23,0) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 25%)}
+.hero-inner{position:relative;z-index:2;max-width:720px}
+.feature-tag{position:absolute;right:24px;bottom:30px;z-index:3;padding:12px 16px;border-radius:14px;background:rgba(13,21,30,.85);backdrop-filter:blur(6px);text-align:left}
+.feature-tag small{display:block;color:var(--blue-light);font-size:11px;font-weight:800;letter-spacing:2px}
+.feature-tag strong{display:block;margin-top:3px;font-size:16px}
+@keyframes slow-zoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.hero-feature{animation:none}}
+.eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 18px;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgb(211,229,242)}
+.eyebrow::before{content:"";width:38px;height:4px;border-radius:4px;background:var(--blue-light)}
+.lead{margin:0 0 32px;font-size:18px;line-height:1.7;color:rgb(210,222,233)}
+.facts{display:flex;flex-wrap:wrap;gap:26px;margin-top:44px}
+.fact{padding-left:14px;border-left:3px solid var(--blue-light)}
+.fact strong{display:block;font-size:16px}
+.fact small{color:var(--muted);font-size:13px}
+
+/* OPEN SIGN + HOURS (hero) */
+.status-panel{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:36px;padding:22px 26px;border:1px solid var(--line);border-radius:20px;background:rgba(13,21,30,.72);backdrop-filter:blur(6px);max-width:640px}
+.open-sign{display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:14px;border:3px solid;font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;font-size:30px;font-weight:700;letter-spacing:3px;text-transform:uppercase;transition:all .6s ease}
+.open-sign .bulb{width:14px;height:14px;border-radius:50%;background:currentColor}
+.open-sign.is-open{color:rgb(120,255,170);border-color:rgb(120,255,170);background:rgba(40,200,110,.1);box-shadow:0 0 12px rgba(80,255,150,.55),0 0 32px rgba(80,255,150,.3),inset 0 0 14px rgba(80,255,150,.25);text-shadow:0 0 8px rgba(120,255,170,.9),0 0 22px rgba(80,255,150,.6);animation:glow 3.2s ease-in-out infinite}
+.open-sign.is-open .bulb{box-shadow:0 0 10px rgb(120,255,170),0 0 20px rgb(80,255,150)}
+.open-sign.is-closed{color:rgb(150,160,172);border-color:rgb(70,82,96);background:rgba(255,255,255,.03)}
+@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(80,255,150,.45),0 0 26px rgba(80,255,150,.22),inset 0 0 12px rgba(80,255,150,.2)}50%{box-shadow:0 0 16px rgba(80,255,150,.7),0 0 42px rgba(80,255,150,.38),inset 0 0 18px rgba(80,255,150,.32)}}
+.status-note{display:block;margin-top:8px;color:var(--muted);font-size:13px}
+.hours.hero-hours{width:auto;border-collapse:collapse;font-size:16px}
+.hero-hours td{padding:3px 0}
+.hero-hours td:first-child{padding-right:22px;color:var(--muted)}
+.hero-hours td:last-child{font-weight:700}
+.hero-hours tr.today td{color:var(--blue-light)}
+@media (prefers-reduced-motion:reduce){.open-sign.is-open{animation:none}}
+
+/* TICKER */
+.ticker{overflow:hidden;background:var(--blue)}
+.ticker-track{display:flex;gap:30px;width:max-content;padding:15px 0;font-weight:900;letter-spacing:2px;animation:slide 30s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{max-width:1180px;margin:auto;padding:90px 22px;overflow-x:clip}
+.intro{max-width:640px;margin:0 0 40px;color:var(--muted);font-size:17px;line-height:1.7}
+
+/* SERVICES */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{padding:30px 26px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgb(26,41,56),rgb(17,26,36))}
+.card-icon{display:grid;place-items:center;width:56px;height:56px;margin-bottom:24px;border-radius:16px;background:rgba(12,126,190,.18);color:var(--blue-light);font-size:26px}
+.card h3{font-size:24px;margin-bottom:10px}
+.card p{margin:0;color:var(--muted);line-height:1.6}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;background:var(--panel)}
+.split-photo{position:relative;min-height:560px}
+.split-copy{align-self:center;padding:70px 6vw}
+.tag{position:absolute;left:20px;bottom:20px;padding:10px 16px;border-radius:30px;background:var(--blue);font-size:12px;font-weight:900;letter-spacing:1px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0 0;padding:0;list-style:none}
+.checks li{padding-bottom:10px;border-bottom:1px solid var(--line);font-weight:800;text-transform:uppercase;font-size:14px}
+.checks li::before{content:"\2713";margin-right:9px;color:var(--blue-light)}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{padding:28px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.step-num{display:grid;place-items:center;width:44px;height:44px;margin-bottom:18px;border-radius:50%;background:var(--blue);font-weight:900;font-size:18px}
+.step h3{font-size:22px;margin-bottom:8px}
+.step p{margin:0;color:var(--muted)}
+
+/* TIRE SIZE (slow rolling mud tire) */
+.size-box{overflow:visible;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:48px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,rgb(27,40,54),rgb(17,26,35))}
+.size-box p{color:var(--muted);font-size:17px;line-height:1.7}
+.sidewall{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1;max-width:420px;width:100%;margin:auto;border-radius:50%;text-align:center}
+.mud-tire{position:absolute;inset:0;z-index:0;filter:drop-shadow(0 22px 30px rgba(0,0,0,.6))}
+.mud-tire svg{display:block;width:100%;height:100%;animation:tire-roll 64s linear infinite}
+.sidewall::after{content:"";position:absolute;inset:20.5%;z-index:1;border-radius:50%;background:radial-gradient(circle,rgb(30,43,57) 0%,rgb(24,35,47) 70%,rgb(15,23,31) 100%);box-shadow:inset 0 0 0 4px rgb(55,70,86),0 0 0 4px rgb(10,15,21)}
+.sidewall > *:not(.mud-tire):not(.dirt){position:relative;z-index:2}
+.sidewall strong{font-size:clamp(28px,3.8vw,42px)}
+.sidewall strong span{color:var(--blue-light)}
+.sidewall small{color:var(--muted);font-size:10px;letter-spacing:1px}
+@keyframes tire-roll{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.mud-tire svg{animation:none}}
+/* DIRT SPRAY (bottom of tire turns left, so dirt sprays left in a low, steady arc) */
+.sidewall{isolation:isolate}
+.dirt{position:absolute;left:0;right:0;bottom:-6%;height:22%;pointer-events:none}
+.pile{position:absolute;left:4%;right:6%;bottom:0;height:40%;z-index:-1;border-radius:50% 50% 10% 10% / 100% 100% 10% 10%;background:radial-gradient(ellipse at 50% 100%,rgb(150,108,66) 0%,rgb(122,86,52) 45%,rgba(98,68,40,.85) 70%,rgba(98,68,40,0) 100%);filter:blur(1px)}
+.pile::before,.pile::after{content:"";position:absolute;bottom:0;border-radius:50% 50% 0 0;background:rgb(118,83,50)}
+.pile::before{left:-8%;width:30%;height:45%;opacity:.8}
+.pile::after{left:22%;width:18%;height:70%;background:rgb(138,98,60)}
+.plume{position:absolute;left:30%;bottom:30%;z-index:3;width:var(--w);height:var(--h);border-radius:50%;transform-origin:100% 50%;background:linear-gradient(to left,rgba(196,150,102,.75) 0%,rgba(176,130,86,.45) 40%,rgba(160,118,78,0) 100%);filter:blur(var(--b));opacity:0;animation:plume var(--t) linear var(--d) infinite}
+.p1{--w:240px;--h:44px;--b:6px;--r:-14deg;--t:1.6s;--d:0s}
+.p2{--w:200px;--h:30px;--b:5px;--r:-24deg;--t:1.9s;--d:.5s}
+.p3{--w:280px;--h:56px;--b:10px;--r:-8deg;--t:2.2s;--d:1s}
+@keyframes plume{0%{opacity:0;transform:translateX(-100%) rotate(var(--r)) scaleX(.2)}20%{opacity:1}70%{opacity:.7}100%{opacity:0;transform:translateX(-100%) rotate(var(--r)) scaleX(1.15) translateY(-6px)}}
+.grain{position:absolute;left:38%;bottom:28%;z-index:4;width:var(--s);height:var(--s);background:var(--c);border-radius:var(--br);opacity:0;animation:grain var(--t) linear var(--d) infinite}
+@keyframes grain{
+  0%{opacity:0;transform:translate(0,0) rotate(0deg)}
+  6%{opacity:1}
+  20%{transform:translate(calc(var(--x) * .2),calc(var(--y) * .64))}
+  40%{transform:translate(calc(var(--x) * .4),calc(var(--y) * .96))}
+  60%{transform:translate(calc(var(--x) * .6),calc(var(--y) * .96))}
+  80%{opacity:.9;transform:translate(calc(var(--x) * .8),calc(var(--y) * .64))}
+  100%{opacity:0;transform:translate(var(--x),calc(var(--y) * .1 + 8px)) rotate(var(--rot))}
+}
+@media (prefers-reduced-motion:reduce){.grain,.plume{display:none}}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:280px 280px;gap:16px}
+.shot{position:relative;border:0;border-radius:18px;overflow:hidden;padding:0}
+.shot.big{grid-row:1/3}
+.shot-label{position:absolute;left:16px;bottom:16px;padding:10px 15px;border-radius:30px;background:var(--blue);font-size:12px;font-weight:900;letter-spacing:1px}
+.shot-zoom{position:absolute;top:16px;right:16px;padding:8px 13px;border-radius:30px;background:rgba(13,21,30,.8);font-size:12px;font-weight:800}
+
+/* REVIEWS / SOCIAL */
+.social{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.social-card{padding:34px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.social-card h3{font-size:28px;margin-bottom:10px}
+.social-card p{margin:0 0 24px;color:var(--muted)}
+.social-card.facebook{border-top:5px solid var(--facebook)}
+.social-card.yelp{border-top:5px solid var(--yelp)}
+
+/* CONTACT */
+.info{padding:18px 0;border-bottom:1px solid var(--line)}
+.info small{display:block;margin-bottom:6px;color:var(--muted);font-size:12px;font-weight:800;letter-spacing:2px}
+.info strong{font-size:19px;line-height:1.6}
+.phone{display:block;border:0;background:none;padding:4px 0;color:white;font-size:clamp(30px,4vw,42px);font-weight:900;letter-spacing:1px;text-align:left}
+.phone:hover{color:var(--blue-light)}
+.hours{width:100%;border-collapse:collapse;font-size:17px}
+.hours td{padding:5px 0}
+.hours td:last-child{text-align:right;font-weight:700}
+.hours tr.today td{color:var(--blue-light)}
+
+/* FOOTER */
+footer{padding:44px 22px 110px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .btn-row{justify-content:center;margin-bottom:22px}
+.float-call{position:fixed;right:16px;bottom:16px;z-index:90;display:none;padding:16px 22px;border:0;border-radius:40px;background:var(--blue);color:white;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,10,15,.94)}
+.lightbox.open{display:flex}
+.lightbox-photo{width:100%;max-width:1000px;height:80vh;background-size:contain;background-position:center;background-repeat:no-repeat}
+.lightbox-close{position:absolute;top:18px;right:18px;width:48px;height:48px;border:0;border-radius:50%;background:var(--blue);color:white;font-size:28px}
+
+/* MOBILE */
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .hero{padding:100px 22px 60px}
+  .hero-feature{width:100%;-webkit-mask-image:linear-gradient(to bottom,black 0%,rgba(0,0,0,.7) 55%,transparent 100%);mask-image:linear-gradient(to bottom,black 0%,rgba(0,0,0,.7) 55%,transparent 100%);background-position:center top}
+  .hero::after{background:linear-gradient(180deg,rgba(9,16,23,.55) 0%,rgba(9,16,23,.85) 45%,var(--bg) 100%)}
+  .feature-tag{display:none}
+  .nav{position:fixed;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:10px 20px 24px;background:rgb(13,21,30);border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .3s}
+  .nav.open{transform:none}
+  .nav-link{padding:16px 6px;border-bottom:1px solid var(--line);text-align:left}
+  .nav .btn{margin-top:14px}
+  .cards{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .split-photo{min-height:360px}
+  .size-box{grid-template-columns:1fr;padding:30px 20px}
+  .gallery{grid-template-columns:1fr;grid-template-rows:none}
+  .shot,.shot.big{grid-row:auto;height:320px}
+  .social{grid-template-columns:1fr}
+  .float-call{display:block}
+}
+@media (max-width:540px){
+  .cards{grid-template-columns:1fr}
+  .checks{grid-template-columns:1fr}
+  .btn-row .btn{width:100%}
+  .lead{font-size:16px}
+  .social-card{padding:26px 22px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <button class="logo" type="button" data-go="home" aria-label="Back to top">
+    <span class="logo-wheel">J</span>
+    <span class="logo-text"><strong>JOHNSON'S</strong><small>DISCOUNT TIRE</small></span>
+  </button>
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav class="nav" id="nav">
+    <button class="nav-link" type="button" data-go="services">Services</button>
+    <button class="nav-link" type="button" data-go="gallery">Our Shop</button>
+    <button class="nav-link" type="button" data-go="reviews">Reviews</button>
+    <button class="nav-link" type="button" data-go="contact">Visit Us</button>
+    <button class="btn btn-blue" type="button" data-call="+18433650555">Call Now</button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="hero-feature" role="img" aria-label="Chrome wheels with off-road tires"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">Conway's friendly tire shop</p>
+      <h1>Welcome to<br><span>Johnson's.</span></h1>
+      <p class="lead">Good tires, fair prices, and honest advice. Whether you drive a daily commuter or a lifted truck, we will help you find the right tires for your budget.</p>
+      <div class="btn-row">
+        <button class="btn btn-blue" type="button" data-call="+18433650555">Call 843-365-0555</button>
+        <button class="btn btn-outline" type="button" data-url="https://www.google.com/maps/search/?api=1&query=3145+Hwy+701+N+Conway+SC">Get Directions</button>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>New and Used</strong><small>Options for every budget</small></div>
+        <div class="fact"><strong>Cars to Trucks</strong><small>Passenger, SUV, off-road</small></div>
+      </div>
+      <div class="status-panel">
+        <div>
+          <div class="open-sign is-closed" id="openSign" role="status" aria-live="polite"><span class="bulb"></span><span id="openText">Hours</span></div>
+          <span class="status-note" id="openNote"></span>
+        </div>
+        <table class="hero-hours hours">
+          <tr data-days="1,2,3,4,5"><td>Monday to Friday</td><td>8:00 AM to 6:00 PM</td></tr>
+          <tr data-days="6"><td>Saturday</td><td>8:00 AM to 1:00 PM</td></tr>
+          <tr data-days="0"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+    </div>
+    <span class="feature-tag"><small>FEATURED</small><strong>Wheel and Tire Packages</strong></span>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>NEW TIRES</span><span>&bull;</span><span>USED TIRES</span><span>&bull;</span><span>TRUCK AND SUV</span><span>&bull;</span><span>OFF-ROAD</span><span>&bull;</span><span>WHEELS</span><span>&bull;</span><span>BALANCING</span><span>&bull;</span>
+      <span>NEW TIRES</span><span>&bull;</span><span>USED TIRES</span><span>&bull;</span><span>TRUCK AND SUV</span><span>&bull;</span><span>OFF-ROAD</span><span>&bull;</span><span>WHEELS</span><span>&bull;</span><span>BALANCING</span><span>&bull;</span>
+    </div>
+  </div>
+
+  <section class="section" id="services">
+    <p class="eyebrow">What we offer</p>
+    <h2>Tires for<br><span>every driver.</span></h2>
+    <p class="intro">Not sure what you need? That is fine. Tell us about your vehicle and how you drive, and we will walk you through the options.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">◉</div>
+        <h3>New and Used Tires</h3>
+        <p>Choices across major brands, sizes, and price points.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">▣</div>
+        <h3>Truck and SUV</h3>
+        <p>Dependable tires for pickups, SUVs, and heavy-duty use.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✦</div>
+        <h3>Off-Road</h3>
+        <p>Mud-terrain and all-terrain tread for tougher builds.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">◎</div>
+        <h3>Wheels and Balancing</h3>
+        <p>Wheel options and balancing for a smooth ride.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="split-photo photo photo-inventory" role="img" aria-label="Tire inventory inside the shop">
+      <span class="tag">IN-STOCK INVENTORY</span>
+    </div>
+    <div class="split-copy">
+      <p class="eyebrow">Plenty to choose from</p>
+      <h2>From daily drives<br><span>to deep mud.</span></h2>
+      <p class="intro">Shelves stacked with tires for nearly every vehicle. Call ahead with your tire size and we can tell you what is available before you come in.</p>
+      <ul class="checks">
+        <li>Passenger cars</li>
+        <li>Truck and SUV</li>
+        <li>Heavy duty</li>
+        <li>Off-road</li>
+        <li>New and used</li>
+        <li>Major brands</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Easy as 1, 2, 3</p>
+    <h2>How it<br><span>works.</span></h2>
+    <p class="intro">Getting new tires should be simple.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Find your size</h3>
+        <p>Check the sidewall of your current tire for a number like 275/65R18.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Give us a call</h3>
+        <p>Tell us your size and budget. We will check what we have in stock.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Come on by</h3>
+        <p>Visit the shop on Highway 701 North and get back on the road.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="size-box">
+      <div>
+        <p class="eyebrow">Reading your tire</p>
+        <h2>Find your<br><span>tire size.</span></h2>
+        <p>The first number is the tire width in millimeters. The second is the sidewall height as a percentage of the width. The number after the R is the wheel diameter in inches.</p>
+      </div>
+      <div class="sidewall">
+        <div class="mud-tire" id="mudTire"></div>
+        <small>EXAMPLE SIZE</small>
+        <strong>275<span>/65</span>R18</strong>
+        <small>WIDTH / ASPECT / WHEEL</small>
+        <div class="dirt" id="dirt" aria-hidden="true">
+          <span class="pile"></span>
+          <span class="plume p1"></span><span class="plume p2"></span><span class="plume p3"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery" style="padding-top:0">
+    <p class="eyebrow">Come see us</p>
+    <h2>A local shop<br><span>you can trust.</span></h2>
+    <p class="intro">Tap any photo to view it full size.</p>
+    <div class="gallery">
+      <button class="shot big photo photo-front" type="button" data-photo="IMG_7948.jpeg" aria-label="View shop photo">
+        <span class="shot-zoom">Tap to enlarge</span><span class="shot-label">OUR SHOP</span>
+      </button>
+      <button class="shot photo photo-inventory" type="button" data-photo="IMG_7950.jpeg" aria-label="View inventory photo">
+        <span class="shot-zoom">Tap to enlarge</span><span class="shot-label">INVENTORY</span>
+      </button>
+      <button class="shot photo photo-offroad" type="button" data-photo="IMG_7951.jpeg" aria-label="View off-road tire photo">
+        <span class="shot-zoom">Tap to enlarge</span><span class="shot-label">OFF-ROAD TIRES</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section" id="reviews" style="padding-top:0">
+    <p class="eyebrow">Stay connected</p>
+    <h2>See what<br><span>neighbors say.</span></h2>
+    <p class="intro">Follow us for updates and read reviews from local customers.</p>
+    <div class="social">
+      <div class="social-card facebook">
+        <h3>Facebook</h3>
+        <p>Shop updates, photos, and news from Johnson's Discount Tire.</p>
+        <button class="btn btn-facebook" type="button" data-url="https://www.facebook.com/JohnsonDiscountTires/">Visit Our Facebook</button>
+      </div>
+      <div class="social-card yelp">
+        <h3>Yelp</h3>
+        <p>Read customer reviews or leave one after your visit.</p>
+        <button class="btn btn-yelp" type="button" data-url="https://www.yelp.com/biz/johnsons-discount-tire-conway">Read Yelp Reviews</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="split" id="contact">
+    <div class="split-photo photo photo-angle" role="img" aria-label="Johnson's Discount Tire building"></div>
+    <div class="split-copy">
+      <p class="eyebrow">Stop by anytime</p>
+      <h2>We would love<br><span>to help.</span></h2>
+      <div class="info">
+        <small>ADDRESS</small>
+        <strong>3145 Highway 701 North<br>Conway, South Carolina</strong>
+      </div>
+      <div class="info">
+        <small>HOURS</small>
+        <table class="hours">
+          <tr data-days="1,2,3,4,5"><td>Monday to Friday</td><td>8:00 AM to 6:00 PM</td></tr>
+          <tr data-days="6"><td>Saturday</td><td>8:00 AM to 1:00 PM</td></tr>
+          <tr data-days="0"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div class="info">
+        <small>TAP TO CALL</small>
+        <button class="phone" type="button" data-call="+18433650555">843-365-0555</button>
+        <button class="phone" type="button" data-call="+18432414580">843-241-4580</button>
+      </div>
+      <div class="btn-row" style="margin-top:28px">
+        <button class="btn btn-blue" type="button" data-url="https://www.google.com/maps/search/?api=1&query=3145+Hwy+701+N+Conway+SC">Get Directions</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="btn-row">
+    <button class="btn btn-facebook" type="button" data-url="https://www.facebook.com/JohnsonDiscountTires/">Facebook</button>
+    <button class="btn btn-yelp" type="button" data-url="https://www.yelp.com/biz/johnsons-discount-tire-conway">Yelp</button>
+  </div>
+  <p>Johnson's Discount Tire &bull; 3145 Highway 701 North, Conway, SC</p>
+  <p>&copy; <span id="year"></span> Johnson's Discount Tire</p>
+</footer>
+
+<button class="float-call" type="button" data-call="+18433650555">☎ CALL SHOP</button>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+  <div class="lightbox-photo" id="lightboxPhoto"></div>
+</div>
+
+<script>
+var nav = document.getElementById("nav");
+
+document.getElementById("menuBtn").addEventListener("click", function () {
+  nav.classList.toggle("open");
+});
+
+document.querySelectorAll("[data-go]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    var target = document.getElementById(el.getAttribute("data-go"));
+    if (target) {
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: "smooth" });
+    }
+    nav.classList.remove("open");
+  });
+});
+
+document.querySelectorAll("[data-call]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    window.location.href = "tel:" + el.getAttribute("data-call");
+  });
+});
+
+document.querySelectorAll("[data-url]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    window.open(el.getAttribute("data-url"), "_blank", "noopener");
+  });
+});
+
+var lightbox = document.getElementById("lightbox");
+var lightboxPhoto = document.getElementById("lightboxPhoto");
+
+document.querySelectorAll("[data-photo]").forEach(function (el) {
+  el.addEventListener("click", function () {
+    lightboxPhoto.style.backgroundImage = "url('" + el.getAttribute("data-photo") + "')";
+    lightbox.classList.add("open");
+  });
+});
+
+document.getElementById("lightboxClose").addEventListener("click", function () {
+  lightbox.classList.remove("open");
+});
+
+lightbox.addEventListener("click", function (e) {
+  if (e.target === lightbox) { lightbox.classList.remove("open"); }
+});
+
+/* Open sign: uses the shop's own time zone (Conway, SC) and refreshes every minute */
+var SCHEDULE = { 0: null, 1: [8, 18], 2: [8, 18], 3: [8, 18], 4: [8, 18], 5: [8, 18], 6: [8, 13] };
+var DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+function shopTime() {
+  var parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "numeric", hour12: false
+  }).formatToParts(new Date());
+  var map = {};
+  parts.forEach(function (p) { map[p.type] = p.value; });
+  var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(map.weekday);
+  var hour = (parseInt(map.hour, 10) % 24) + parseInt(map.minute, 10) / 60;
+  return { day: day, hour: hour };
+}
+
+function formatHour(h) {
+  var suffix = h >= 12 ? "PM" : "AM";
+  var display = h % 12 === 0 ? 12 : h % 12;
+  return display + ":00 " + suffix;
+}
+
+function nextOpening(day, hour) {
+  for (var i = 0; i < 8; i++) {
+    var d = (day + i) % 7;
+    var slot = SCHEDULE[d];
+    if (slot && (i > 0 || hour < slot[0])) {
+      var when = i === 0 ? "today" : i === 1 ? "tomorrow" : DAY_NAMES[d];
+      return "Opens " + when + " at " + formatHour(slot[0]);
+    }
+  }
+  return "";
+}
+
+function updateOpenSign() {
+  var t = shopTime();
+  var slot = SCHEDULE[t.day];
+  var isOpen = !!slot && t.hour >= slot[0] && t.hour < slot[1];
+  var sign = document.getElementById("openSign");
+  var note = document.getElementById("openNote");
+
+  sign.classList.toggle("is-open", isOpen);
+  sign.classList.toggle("is-closed", !isOpen);
+  document.getElementById("openText").textContent = isOpen ? "Open" : "Closed";
+
+  if (isOpen) {
+    var minutesLeft = Math.round((slot[1] - t.hour) * 60);
+    note.textContent = minutesLeft <= 60
+      ? "Closing soon, open until " + formatHour(slot[1])
+      : "Open today until " + formatHour(slot[1]);
+  } else {
+    note.textContent = nextOpening(t.day, t.hour);
+  }
+
+  document.querySelectorAll(".hours tr").forEach(function (row) {
+    var days = row.getAttribute("data-days").split(",");
+    row.classList.toggle("today", days.indexOf(String(t.day)) > -1);
+  });
+}
+
+updateOpenSign();
+setInterval(updateOpenSign, 60000);
+
+/* Mud tire tread: drawn with SVG so the lugs stick out past the edge like a real mud-terrain tire */
+(function () {
+  var host = document.getElementById("mudTire");
+  if (!host) { return; }
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) { e.setAttribute(k, attrs[k]); }
+    return e;
+  }
+  function pt(r, deg) {
+    var a = (deg - 90) * Math.PI / 180;
+    return (200 + r * Math.cos(a)).toFixed(2) + "," + (200 + r * Math.sin(a)).toFixed(2);
+  }
+  function lug(r1, r2, inA, inB, outA, outB) {
+    return "M" + pt(r1, inA) + " L" + pt(r2, outA) + " L" + pt(r2, outB) + " L" + pt(r1, inB) + " Z";
+  }
+
+  var svg = el("svg", { viewBox: "0 0 400 400", "aria-hidden": "true" });
+  var edge = "rgb(5,6,8)";
+  var cut = "rgb(10,11,13)";
+  var count = 18;
+  var step = 360 / count;
+
+  /* black rubber visible in the deep voids between lugs */
+  svg.appendChild(el("circle", { cx: 200, cy: 200, r: 172, fill: "rgb(9,10,12)" }));
+
+  for (var i = 0; i < count; i++) {
+    var c = i * step;
+    var m = c + step / 2;
+
+    /* big slanted lug that sticks out past the tire edge */
+    svg.appendChild(el("path", { d: lug(146, 197, c - 6.5, c + 6.5, c - 4.2, c + 6.2), fill: "rgb(30,32,36)", stroke: edge, "stroke-width": 2.5, "stroke-linejoin": "round" }));
+    /* worn top face for a raised, chunky look */
+    svg.appendChild(el("path", { d: lug(178, 197, c - 5, c + 6.3, c - 4.2, c + 6.2), fill: "rgb(42,45,51)" }));
+    /* zig-zag sipe cut into the big lug */
+    svg.appendChild(el("path", { d: "M" + pt(154, c - 3) + " L" + pt(163, c + 2) + " L" + pt(172, c - 1.5) + " L" + pt(186, c + 3), fill: "none", stroke: cut, "stroke-width": 2.5, "stroke-linecap": "round" }));
+
+    /* smaller staggered lug between the big ones */
+    svg.appendChild(el("path", { d: lug(156, 189, m - 3.8, m + 3.8, m - 2.6, m + 3.6), fill: "rgb(26,28,32)", stroke: edge, "stroke-width": 2, "stroke-linejoin": "round" }));
+    svg.appendChild(el("path", { d: "M" + pt(165, m - 1.2) + " L" + pt(179, m + 1.5), stroke: cut, "stroke-width": 2, "stroke-linecap": "round" }));
+  }
+
+  /* sidewall */
+  svg.appendChild(el("circle", { cx: 200, cy: 200, r: 147, fill: "rgb(19,21,25)", stroke: edge, "stroke-width": 3 }));
+  /* raised shoulder ribs on the sidewall */
+  for (var j = 0; j < count * 2; j++) {
+    var d = j * (step / 2) + step / 4;
+    svg.appendChild(el("path", { d: "M" + pt(133, d) + " L" + pt(145, d), stroke: "rgb(30,33,38)", "stroke-width": 5, "stroke-linecap": "round" }));
+  }
+  /* bead line */
+  svg.appendChild(el("circle", { cx: 200, cy: 200, r: 126, fill: "none", stroke: "rgb(28,31,36)", "stroke-width": 2 }));
+
+  host.appendChild(svg);
+})();
+
+/* Dirt grains: many small particles in low, steady arcs to the left */
+(function () {
+  var host = document.getElementById("dirt");
+  if (!host) { return; }
+  var colors = ["rgb(124,88,54)", "rgb(150,108,68)", "rgb(98,68,42)", "rgb(176,132,88)", "rgb(84,58,36)", "rgb(196,156,110)"];
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  for (var i = 0; i < 92; i++) {
+    var g = document.createElement("span");
+    g.className = "grain";
+    var big = Math.random() < 0.18;
+    var size = big ? rand(6, 10) : rand(2, 5.5);
+    g.style.setProperty("--s", size.toFixed(1) + "px");
+    g.style.setProperty("--c", colors[Math.floor(Math.random() * colors.length)]);
+    g.style.setProperty("--br", Math.round(rand(25, 50)) + "% " + Math.round(rand(30, 60)) + "% " + Math.round(rand(25, 55)) + "% " + Math.round(rand(35, 60)) + "%");
+    g.style.setProperty("--x", (-rand(90, 320)).toFixed(0) + "px");
+    g.style.setProperty("--y", (-rand(18, big ? 50 : 85)).toFixed(0) + "px");
+    g.style.setProperty("--t", rand(2.8, 4.4).toFixed(2) + "s");
+    g.style.setProperty("--d", (-rand(0, 4.4)).toFixed(2) + "s");
+    g.style.setProperty("--rot", (-rand(90, 400)).toFixed(0) + "deg");
+    host.appendChild(g);
+  }
+})();
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
