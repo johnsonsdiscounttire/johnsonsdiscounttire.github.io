@@ -298,11 +298,6 @@ footer .button-row{justify-content:center;margin-bottom:22px}
         <p>Major brands, sizes, and price points.</p>
       </article>
       <article class="card">
-        <div class="card-icon">▣</div>
-        <h3>Truck and SUV</h3>
-        <p>Dependable tires for pickups, SUVs, and heavy-duty use.</p>
-      </article>
-      <article class="card">
         <div class="card-icon">✦</div>
         <h3>Off-Road</h3>
         <p>Mud-terrain and all-terrain tread for tougher builds.</p>
@@ -618,8 +613,8 @@ setInterval(updateOpenSign, 60000);
     var c = i * step;
     var m = c + step / 2;
     /* main lug: shorter, less slanted, rounded outer face */
-    svg.appendChild(el("path", { d: lug(146, 191, c - 6, c + 6, c - 5.2, c + 5.6), fill: "rgb(32,34,38)", stroke: edge, "stroke-width": 3, "stroke-linejoin": "round" }));
-    svg.appendChild(el("path", { d: lug(176, 191, c - 5, c + 5.4, c - 4.8, c + 5.2), fill: "rgb(45,48,54)" }));
+    svg.appendChild(el("path", { d: lug(146, 194, c - 6, c + 6, c - 5.2, c + 5.6), fill: "rgb(32,34,38)", stroke: edge, "stroke-width": 3, "stroke-linejoin": "round" }));
+    svg.appendChild(el("path", { d: lug(176, 194, c - 5, c + 5.4, c - 4.8, c + 5.2), fill: "rgb(45,48,54)" }));
     /* gentle curved sipe */
     svg.appendChild(el("path", { d: "M" + pt(156, c - 1.5) + " Q" + pt(168, c + 2) + " " + pt(182, c - 0.5), fill: "none", stroke: cut, "stroke-width": 2.5, "stroke-linecap": "round" }));
     /* small staggered lug */
