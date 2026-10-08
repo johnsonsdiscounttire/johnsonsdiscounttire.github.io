@@ -586,7 +586,7 @@ function updateOpenSign() {
 updateOpenSign();
 setInterval(updateOpenSign, 60000);
 
-/* MUD-TERRAIN TIRE */
+/* MUD-TERRAIN TIRE (rounded, softer tread) */
 (function () {
   var host = document.getElementById("tireGraphic");
   var NS = "http://www.w3.org/2000/svg";
@@ -600,32 +600,37 @@ setInterval(updateOpenSign, 60000);
     var a = (deg - 90) * Math.PI / 180;
     return (200 + r * Math.cos(a)).toFixed(2) + "," + (200 + r * Math.sin(a)).toFixed(2);
   }
+  /* Lug with a curved outer face so the tire reads as round */
   function lug(r1, r2, a, b, c, d) {
-    return "M" + pt(r1, a) + " L" + pt(r2, c) + " L" + pt(r2, d) + " L" + pt(r1, b) + " Z";
+    return "M" + pt(r1, a) + " L" + pt(r2, c) + " A" + r2 + " " + r2 + " 0 0 1 " + pt(r2, d) + " L" + pt(r1, b) + " Z";
   }
 
   var svg = el("svg", { viewBox: "0 0 400 400", "aria-hidden": "true" });
   var edge = "rgb(5,6,8)";
-  var cut = "rgb(10,11,13)";
-  var count = 18;
+  var cut = "rgb(12,13,15)";
+  var count = 20;
   var step = 360 / count;
 
-  svg.appendChild(el("circle", { cx: 200, cy: 200, r: 172, fill: "rgb(9,10,12)" }));
+  /* rubber between the lugs */
+  svg.appendChild(el("circle", { cx: 200, cy: 200, r: 181, fill: "rgb(12,13,15)" }));
 
   for (var i = 0; i < count; i += 1) {
     var c = i * step;
     var m = c + step / 2;
-    svg.appendChild(el("path", { d: lug(146, 197, c - 6.5, c + 6.5, c - 4.2, c + 6.2), fill: "rgb(30,32,36)", stroke: edge, "stroke-width": 2.5, "stroke-linejoin": "round" }));
-    svg.appendChild(el("path", { d: lug(178, 197, c - 5, c + 6.3, c - 4.2, c + 6.2), fill: "rgb(44,47,53)" }));
-    svg.appendChild(el("path", { d: "M" + pt(154, c - 3) + " L" + pt(163, c + 2) + " L" + pt(172, c - 1.5) + " L" + pt(186, c + 3), fill: "none", stroke: cut, "stroke-width": 2.5, "stroke-linecap": "round" }));
-    svg.appendChild(el("path", { d: lug(156, 189, m - 3.8, m + 3.8, m - 2.6, m + 3.6), fill: "rgb(25,28,32)", stroke: edge, "stroke-width": 2, "stroke-linejoin": "round" }));
-    svg.appendChild(el("path", { d: "M" + pt(165, m - 1.2) + " L" + pt(179, m + 1.5), stroke: cut, "stroke-width": 2, "stroke-linecap": "round" }));
+    /* main lug: shorter, less slanted, rounded outer face */
+    svg.appendChild(el("path", { d: lug(146, 191, c - 6, c + 6, c - 5.2, c + 5.6), fill: "rgb(32,34,38)", stroke: edge, "stroke-width": 3, "stroke-linejoin": "round" }));
+    svg.appendChild(el("path", { d: lug(176, 191, c - 5, c + 5.4, c - 4.8, c + 5.2), fill: "rgb(45,48,54)" }));
+    /* gentle curved sipe */
+    svg.appendChild(el("path", { d: "M" + pt(156, c - 1.5) + " Q" + pt(168, c + 2) + " " + pt(182, c - 0.5), fill: "none", stroke: cut, "stroke-width": 2.5, "stroke-linecap": "round" }));
+    /* small staggered lug */
+    svg.appendChild(el("path", { d: lug(158, 186, m - 3.4, m + 3.4, m - 2.8, m + 3.2), fill: "rgb(27,30,34)", stroke: edge, "stroke-width": 2.5, "stroke-linejoin": "round" }));
   }
 
+  /* sidewall */
   svg.appendChild(el("circle", { cx: 200, cy: 200, r: 147, fill: "rgb(19,21,25)", stroke: edge, "stroke-width": 3 }));
   for (var j = 0; j < count * 2; j += 1) {
     var d = j * (step / 2) + step / 4;
-    svg.appendChild(el("path", { d: "M" + pt(133, d) + " L" + pt(145, d), stroke: "rgb(31,35,40)", "stroke-width": 5, "stroke-linecap": "round" }));
+    svg.appendChild(el("path", { d: "M" + pt(135, d) + " L" + pt(144, d), stroke: "rgb(31,35,40)", "stroke-width": 4, "stroke-linecap": "round" }));
   }
   svg.appendChild(el("circle", { cx: 200, cy: 200, r: 126, fill: "none", stroke: "rgb(28,31,36)", "stroke-width": 2 }));
 
